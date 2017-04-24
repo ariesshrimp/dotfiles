@@ -38,15 +38,6 @@ git_branch() {
   [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH) "
 }
 
-svn_branch() {
-  [ -d .svn ] || return
-  SVN_INFO=$(svn info 2>/dev/null) || return
-  SVN_BRANCH=$(echo "$SVN_INFO" | grep URL: | grep -oe '\(trunk\|branches/[^/]\+\|tags/[^/]\+\)')
-  [ -n "$SVN_BRANCH" ] || return
-  # Display tags intentionally so we don't write to them by mistake
-  echo "(${SVN_BRANCH#branches/}) "
-}
-
 if [ "$USER" = "root" ]
 then
   PROMPT='%{$fg_bold[magenta]%}%m %{$fg_bold[blue]%}# %b%f'

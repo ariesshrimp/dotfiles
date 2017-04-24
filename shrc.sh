@@ -46,50 +46,21 @@ quiet_which() {
   which "$1" &>/dev/null
 }
 
-add_to_path_end "$HOME/Documents/Scripts"
-add_to_path_end "$HOME/Documents/Scripts/thirdparty"
-add_to_path_end "$HOME/Scripts"
-add_to_path_end "$HOME/Scripts/thirdparty"
-add_to_path_end "$HOME/Library/Python/2.7/bin"
-add_to_path_end "$HOME/.gem/ruby/2.1.0/bin"
-add_to_path_end "$HOME/.gem/ruby/2.0.0/bin"
-add_to_path_end "$HOME/.gem/ruby/1.8/bin"
-add_to_path_end "$HOME/.rbenv/bin"
-add_to_path_end "$HOME/.cabal/bin"
-add_to_path_end "$HOME/Applications/SublimeText2"
-add_to_path_end "/c/Program Files/Sublime Text 2"
-add_to_path_end "/Applications/GitX.app/Contents/Resources"
-add_to_path_end "/Applications/TextMate.app/Contents/Resources"
-add_to_path_end "/Applications/GitHub.app/Contents/MacOS"
-add_to_path_end "/data/github/shell/bin"
 add_to_path_start "/usr/local/bin"
 add_to_path_start "/usr/local/sbin"
 add_to_path_start "$HOME/Homebrew/bin"
 add_to_path_start "$HOME/Homebrew/sbin"
 
-# Run rbenv if it exists
-quiet_which rbenv && add_to_path_start "$(rbenv root)/shims"
-
 # Aliases
 alias mkdir="mkdir -vp"
-alias df="df -H"
 alias rm="rm -iv"
 alias mv="mv -iv"
-alias zmv="noglob zmv -vW"
 alias cp="cp -irv"
-alias du="du -sh"
-alias make="nice make"
 alias less="less --ignore-case --raw-control-chars"
 alias rsync="rsync --partial --progress --human-readable --compress"
-alias rake="noglob rake"
-alias rg="rg --colors 'match:style:nobold' --colors 'path:style:nobold'"
-alias be="noglob bundle exec"
 alias gist="gist --open --copy"
-alias svn="svn-git.sh"
 alias sha256="shasum -a 256"
 alias ack="ag"
-alias z="zeus"
-alias zt="zeus test"
 
 # Platform-specific stuff
 if quiet_which brew
@@ -180,24 +151,13 @@ then
 fi
 
 # Set up editor
-if [ -n "${SSH_CONNECTION}" ] && quiet_which rmate
+if [ -n "${SSH_CONNECTION}" ]
 then
-  export EDITOR="rmate"
   export GIT_EDITOR="$EDITOR -w"
-  export SVN_EDITOR=$GIT_EDITOR
-elif quiet_which mate
+elif quiet_which code
 then
-  export EDITOR="mate"
+  export EDITOR="code"
   export GIT_EDITOR="$EDITOR -w"
-  export SVN_EDITOR="$GIT_EDITOR"
-elif quiet_which subl || quiet_which sublime_text
-then
-  quiet_which subl && export EDITOR="subl"
-  quiet_which sublime_text && export EDITOR="sublime_text" \
-    && alias subl="sublime_text"
-
-  export GIT_EDITOR="$EDITOR -w"
-  export SVN_EDITOR="$GIT_EDITOR"
 elif quiet_which vim
 then
   export EDITOR="vim"
@@ -220,18 +180,6 @@ cd() {
     && set_terminal_app_pwd
   pwd > "$HOME/.lastpwd"
   ls
-}
-
-# Use ruby-prof to generate a call stack
-ruby-call-stack() {
-  ruby-prof --printer=call_stack --file=call_stack.html -- "$@"
-}
-
-# Use ruby-prof to generate a call stack
-rails-clean-migrate-branch() {
-  [ -n "$1" ] || return
-  git checkout master && git pull --rebase && rake db:setup db:migrate &&
-    git checkout -f "$1" && rake db:migrate
 }
 
 # Pretty-print JSON files
