@@ -109,7 +109,6 @@ then
   export GREP_OPTIONS="--color=auto"
   export CLICOLOR=1
   export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
-  export RESQUE_REDIS_URL=redis://localhost:6379
   if quiet_which diff-highlight
   then
     # shellcheck disable=SC2016

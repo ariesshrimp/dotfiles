@@ -5,3 +5,4 @@
 bundle/cache
 secrets
 rbenv/*/
+node_modules

@@ -22,6 +22,12 @@ cask 'screenhero'
 cask 'vagrant'
 cask 'visual-studio-code'
 cask 'vmware-fusion'
+cask 'docker-toolbox'
+cask 'docker'
+cask 'little-snitch'
+cask 'micro-snitch'
+cask 'tunnelbear'
+
 mas '1Password', id: 443987910
 mas 'Slack', id: 803453959
 mas 'Xcode', id: 497799835
@@ -29,3 +35,4 @@ mas 'Skitch', id: 425955336
 mas 'Quiver', id: 866773894
 mas '1Password', id: 443987910
 mas 'Howler Timer', id: 428846772
+mas 'Recordit', id: 805714652
