@@ -1,10 +1,7 @@
 # Dot Files
-My dot files shared between machines for ZSH, Bash, macOS, Linux, Cygwin and MSYS.
+My dot files shared between machines for macOS.
 
 ## Installation
-
-## Status
-I'm using these on all my personal machines.
 
 ## License
 These dot files are licensed under the [GPLv3 License](https://en.wikipedia.org/wiki/GNU_General_Public_License).
