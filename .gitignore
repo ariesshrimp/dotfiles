@@ -1,8 +1,0 @@
-/ssh/id_ed25519
-/ssh/id_rsa
-/ssh/github_rsa*
-/ssh/known_hosts
-bundle/cache
-secrets
-rbenv/*/
-node_modules

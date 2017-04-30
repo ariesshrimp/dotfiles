@@ -1,0 +1,17 @@
+{
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "window.zoomLevel": -1,
+  "editor.scrollBeyondLastLine": false,
+  "editor.wordWrap": "on",
+  "eslint.autoFixOnSave": false,
+  "workbench.colorTheme": "Visual Studio Dark",
+  "workbench.iconTheme": "vs-seti",
+  "workbench.sideBar.location": "right",
+  "explorer.openEditors.visible": 0,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true
+}

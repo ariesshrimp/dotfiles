@@ -1,0 +1,10 @@
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
+code --install-extension 
