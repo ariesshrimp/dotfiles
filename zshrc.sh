@@ -1,9 +1,3 @@
-# check if this is a login shell
-[ "$0" = "-zsh" ] && export LOGIN_ZSH="1"
-
-# run zprofile if this is not a login shell
-[ -n "$LOGIN_ZSH" ] && source ~/.zprofile
-
 # load shared shell configuration
 source ~/.shrc
 

@@ -47,7 +47,7 @@ sh ../node/install.sh
 
 echo 'Symlinking all your dotfiles...'
 
-./setup.sh
+sh ./setup.sh
 
 ###############################################################################
 # OSX defaults                                                                #

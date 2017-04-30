@@ -1,5 +1,20 @@
-[include]
-	path = ~/.gitconfig-user
+[user]
+	# Name used in commit messages.
+	name = Joseph Fraley
+	# Email used in commit messages.
+	email = jose.fraley@gmail.com
+[shell]
+	# Default SSH username.
+	username = joefraley
+[github]
+	# GitHub username for command-line tools.
+	user = joefraley
+[alias]
+	um = !(git remote -v | grep -q joefraley || hub fork) \
+	    && git push --set-upstream joefraley $(git current-branch)
+	# Push the current branch to joefraley and open a pull request.
+	umpr = !git um && hub pull-request -o
+
 [color]
 	# Colour terminal command output when possible.
 	ui = auto

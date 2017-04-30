@@ -4,9 +4,14 @@
 # NVM
 ###############################################################################
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-if test ! $(which nvm)
+echo "Checking for an existing Node Version Manager..."
+
+if test ! $(nvm --version)
 then
+  echo "Installing Node Version Manager..."
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+  echo "Installing Node and npm..."  
   nvm install node
   nvm use node
   nvm alias default node
@@ -16,41 +21,26 @@ fi
 # My favorite global packages
 ###############################################################################
 
+packages=(
+  eslint
+  prettier-eslint
+  babel-eslint
+  babel-cli
+  commitizen
+  cz-conventional-changelog
+  create-react-app
+  now
+  live-server
+  nr
+  flow-bin
+  concurrently
+)
+
 if test $(which yarn)
 then
-  yarn global add eslint
-  yarn global add prettier-eslint
-  yarn global add babel-eslint
-  yarn global add --dev eslint-config-meridian@git+ssh://git@github.com/joefraley/eslint-config-meridian.git
-
-  yarn global add babel-cli
-
-  yarn global add commitizen
-  yarn global add cz-conventional-changelog
-
-  yarn global add create-react-app
-  yarn global add now
-  yarn global add live-server
-  yarn global add nr
-
-  yarn global add flow-bin
-  flow init
+  echo "I found yarn installed so I'm using that for global packages..."  
+  yarn global add "${packages[@]}"
 else
-  npm i -g eslint
-  npm i -g prettier-eslint
-  npm i -g babel-eslint
-  npm i -g --dev eslint-config-meridian@git+ssh://git@github.com/joefraley/eslint-config-meridian.git
-
-  npm i -g babel-cli
-
-  npm i -g commitizen
-  npm i -g cz-conventional-changelog
-
-  npm i -g create-react-app
-  npm i -g now
-  npm i -g live-server
-  npm i -g nr
-
-  npm i -g flow-bin
-  flow init
+  echo "I'm using your default npm path for global packages..."  
+  npm i -g "${packages[@]}"
 fi
