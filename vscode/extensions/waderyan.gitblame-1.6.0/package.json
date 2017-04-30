@@ -1,0 +1,67 @@
+{
+	"name": "gitblame",
+	"displayName": "Git Blame",
+	"description": "See git blame information in the status bar.",
+	"version": "1.6.0",
+	"publisher": "waderyan",
+	"engines": {
+		"vscode": "^1.10.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#f0efe7",
+		"theme": "light"
+	},
+	"icon": "images/git_icon.png",
+	"activationEvents": [
+		"*"
+	],
+	"keywords": [
+		"git",
+		"gitblame",
+		"blame"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"dependencies": {
+		"git-blame": "^1.2.0",
+		"moment": "^2.10.6",
+		"path": "^0.12.7"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	},
+	"homepage": "https://github.com/Sertion/vscode-gitblame/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/Sertion/vscode-gitblame/issues"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sertion/vscode-gitblame"
+	},
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.blame",
+				"title": "Git Blame"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "2335b326-c334-4e81-bc51-c408fcec6e7c",
+		"publisherId": "531ba7ca-0230-4a97-bfd1-0d02fdb02958",
+		"publisherDisplayName": "Wade Anderson"
+	}
+}

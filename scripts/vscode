@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+code --install-extension pprice.better-merge
+code --install-extension alexdima.copy-relative-path
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension flowtype.flow-for-vscode
+code --install-extension waderyan.gitblame
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension oderwat.indent-rainbow
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension esbenp.prettier-vscode
+code --install-extension mohsen1.prettify-json
+code --install-extension extr0py.vscode-relative-line-numbers
+code --install-extension vscodevim.vim
+code --install-extension robertohuertasm.vscode-icons
+code --install-extension WakaTime.vscode-wakatime
+
+
+

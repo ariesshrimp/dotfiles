@@ -1,0 +1,152 @@
+{
+	"name": "graphql-for-vscode",
+	"displayName": "GraphQL for VSCode",
+	"version": "1.4.1",
+	"description": "GraphQL syntax highlighting, linting, auto-complete, and more!",
+	"author": {
+		"name": "Kumar Harsh",
+		"email": "khs@playlyfe.com",
+		"url": "https://github.com/kumarharsh"
+	},
+	"keywords": [
+		"vscode",
+		"visual studio code",
+		"graphql",
+		"linter"
+	],
+	"publisher": "kumar-harsh",
+	"engines": {
+		"vscode": "^1.6.0"
+	},
+	"license": "MIT",
+	"contributors": [
+		{
+			"name": "Mayank Agarwal (@Mayank1791989)",
+			"url": "github.com/Mayank1791989",
+			"email": "mayank@playlyfe.com"
+		}
+	],
+	"categories": [
+		"Languages",
+		"Linters",
+		"Snippets"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kumarharsh/graphql-for-vscode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kumarharsh/graphql-for-vscode/issues"
+	},
+	"homepage": "https://github.com/kumarharsh/graphql-for-vscode/blob/master/README.md",
+	"icon": "images/logo.svg",
+	"activationEvents": [
+		"workspaceContains:.gqlconfig"
+	],
+	"main": "./out/client/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Graphql Configuration",
+			"properties": {
+				"graphqlForVSCode.nodePath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "A path added to NODE_PATH when resolving the @playlyfe/gql module."
+				},
+				"graphqlForVSCode.debug": {
+					"type": [
+						"boolean",
+						"null"
+					],
+					"default": false,
+					"description": "enable debug logs."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "graphqlForVSCode.showOutputChannel",
+				"title": "GraphQL for VSCode: Show Output Channel"
+			}
+		],
+		"languages": [
+			{
+				"id": "graphql",
+				"extensions": [
+					".gql",
+					".graphql"
+				],
+				"aliases": [
+					"GraphQL"
+				],
+				"configuration": "./graphql.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "graphql",
+				"scopeName": "source.graphql",
+				"path": "./syntaxes/graphql.json"
+			},
+			{
+				"injectTo": [
+					"source.js",
+					"source.ts",
+					"source.jsx",
+					"source.tsx"
+				],
+				"scopeName": "relayQL.graphql",
+				"path": "./syntaxes/graphql.js.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "graphql",
+				"path": "./snippets/graphql.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run clean && npm run compile-server && npm run compile",
+		"clean": "rimraf out",
+		"compile-server": "tsc -p src/server",
+		"watch-server": "tsc -watch -p src/server",
+		"compile": "tsc -p src/client",
+		"watch": "tsc -watch -p src/client",
+		"dev": "npm run clean && npm run compile-server && npm run watch",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"semantic-release": "semantic-release pre && vsce publish -p $VS_TOKEN && semantic-release post"
+	},
+	"devDependencies": {
+		"@types/node": "^6.0.40",
+		"conventional-recommended-bump": "^0.3.0",
+		"semantic-release": "^6.3.2",
+		"semantic-release-visualstudio-marketplace-version": "^1.0.0",
+		"typescript": "^2.0.10",
+		"vscode": "^1.0.3",
+		"rimraf": "^2.6.1"
+	},
+	"dependencies": {
+		"semver": "5.3.0",
+		"vscode-languageclient": "^3.0.3",
+		"vscode-languageserver": "^3.0.4",
+		"vscode-uri": "^1.0.0"
+	},
+	"galleryBanner": {
+		"color": "#2e2348",
+		"theme": "dark"
+	},
+	"release": {
+		"getLastRelease": "semantic-release-visualstudio-marketplace-version",
+		"analyzeCommits": "./scripts/analyzeCommits"
+	},
+	"__metadata": {
+		"id": "3e8a391a-f3f0-44b2-8631-7847b0c8839a",
+		"publisherId": "648f4d5a-b453-44ae-b4d2-038c3297108f",
+		"publisherDisplayName": "Kumar Harsh"
+	}
+}

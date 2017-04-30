@@ -1,0 +1,45 @@
+{
+	"name": "vscode-relative-line-numbers",
+	"displayName": "Relative Line Numbers",
+	"description": "Implementation of relative line numbers, using gutter imgaes",
+	"version": "0.0.5",
+	"publisher": "extr0py",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.relativeLineNumbersEnable",
+				"title": "Relative Line Numbers: Enable"
+			},
+			{
+				"command": "extension.relativeLineNumbersDisable",
+				"title": "Relative Line Numbers: Disable"
+			}
+		]
+	},
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"generate-images": "phantomjs ./tools/generate-images.js",
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"phantomjs": "^2.1.7",
+		"typescript": "^1.8.5",
+		"vscode": "^0.11.0"
+	},
+	"__metadata": {
+		"id": "4297bbe6-97c8-4ffa-b133-37a31f971277",
+		"publisherId": "9ec3a52e-2dcc-4742-aa03-7aeb29370b6a",
+		"publisherDisplayName": "extr0py"
+	}
+}
