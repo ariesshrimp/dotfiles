@@ -42,14 +42,6 @@ echo 'Setting up your custom keyboard config...'
 zsh ./karabiner
 
 ###############################################################################
-# Node Stuff                                                                  #
-# https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
-###############################################################################
-
-echo 'Setting up your Node packages...'
-zsh ./node
-
-###############################################################################
 # Editors                                                                     #
 ###############################################################################
 echo 'Setting up your Editors packages...'
@@ -61,6 +53,14 @@ zsh ./vscode
 
 echo 'Symlinking all your dotfiles...'
 zsh ./setup
+
+###############################################################################
+# Node Stuff                                                                  #
+# https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
+###############################################################################
+
+echo 'Setting up your Node packages...'
+zsh ./node
 
 ###############################################################################
 # OSX defaults                                                                #

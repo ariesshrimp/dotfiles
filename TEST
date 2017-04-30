@@ -1,0 +1,5 @@
+#!/bin/zsh
+source ~/.zshrc
+if command_exists nvm ; then
+    echo "nvm"
+fi
